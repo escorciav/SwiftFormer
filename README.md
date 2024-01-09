@@ -6,7 +6,9 @@ Fork of SwiftFormer porting onto Qualcomm:QNN/SNPE via onnx.
 
   - 2.17 msec @ S23 Ultra S8G2
 
-- [ ] Profile SwiftFormer reported in paper.
+- [x] [Export](./export.py) & profile SwiftFormer_L1 reported in paper.
+
+  - 2.63 msec @ S23 Ultra S8G2
 
 Original [readme is below](#swiftformer)
 
