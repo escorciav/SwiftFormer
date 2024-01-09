@@ -4,11 +4,20 @@ Fork of SwiftFormer porting onto Qualcomm:QNN/SNPE via onnx.
 
 - [x] [Export](./export_block.py) & profile SwiftFormerEncoder block
 
-  - 2.17 msec @ S23 Ultra S8G2
+  | QNN            | 2.16 | 2.17  | 2.18   |
+  | -------------- | -----| ----- | ------ |
+  | Latency (msec) | 2.17 | 1.69  | 1.7    |
+
+  All done in S23 Ultra S8G2, Hexagon v73 AFAIR.
 
 - [x] [Export](./export.py) & profile SwiftFormer_L1 reported in paper.
 
-  - 2.63 msec @ S23 Ultra S8G2
+  | QNN            | 2.16 | 2.17  | 2.18   |
+  | -------------- | -----| ----- | ------ |
+  | Latency (msec) | 2.63 | TODO  | TODO   |
+
+  All done in S23 Ultra S8G2, Hexagon v73 AFAIR.
+  More details [here](https://github.com/Amshaker/SwiftFormer/issues/14#issuecomment-1883421008).
 
 Original [readme is below](#swiftformer)
 
@@ -19,6 +28,11 @@ conda env create -n swifttformer python=3.10
 conda activate swiftformer
 pip install -r requirements.txt -f  https://download.pytorch.org/whl/torch_stable.html
 ```
+
+## Contact
+If you have any questions, please create an issue in the original [SwiftFormer repo](https://github.com/Amshaker/SwiftFormer) and tag/mention me, `@3scorciav`.
+
+Personal/consultancy enquiries? Reach out via email. `victor.escorcia` at university `kaust.edu.sa`.
 
 ![](https://i.imgur.com/waxVImv.png)
 
@@ -151,8 +165,3 @@ if you use our work, please consider citing us:
     year      = {2023},
 }
 ```
-
-## Contact
-If you have any questions, please create an issue in the original [SwiftFormer repo](https://github.com/Amshaker/SwiftFormer) and tag/mention me, `@3scorciav`.
-
-Personal/consultancy enquiries? Reach out via email. `victor.escorcia` at university `kaust.edu.sa`.
