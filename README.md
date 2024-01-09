@@ -1,7 +1,28 @@
-# SwiftFormer
-### **SwiftFormer: Efficient Additive Attention for Transformer-based Real-time Mobile Vision Applications**
- 
+# SwiftFormer meets QNN (Android)
+
+Fork of SwiftFormer porting onto Qualcomm:QNN/SNPE via onnx.
+
+- [x] [Export](./export_block.py) & profile SwiftFormerEncoder block
+
+  - 2.17 msec @ S23 Ultra S8G2
+
+- [ ] Profile SwiftFormer reported in paper.
+
+Original [readme is below](#swiftformer)
+
+## Setup
+
+```bash
+conda env create -n swifttformer python=3.10
+conda activate swiftformer
+pip install -r requirements.txt -f  https://download.pytorch.org/whl/torch_stable.html
+```
+
 ![](https://i.imgur.com/waxVImv.png)
+
+# [SwiftFormer](https://github.com/Amshaker/SwiftFormer)
+### **SwiftFormer: Efficient Additive Attention for Transformer-based Real-time Mobile Vision Applications**
+
 [Abdelrahman Shaker](https://scholar.google.com/citations?hl=en&user=eEz4Wu4AAAAJ)<sup>*1</sup>, [Muhammad Maaz](https://scholar.google.com/citations?user=vTy9Te8AAAAJ&hl=en&authuser=1&oi=sra)<sup>1</sup>, [Hanoona Rasheed](https://scholar.google.com/citations?user=yhDdEuEAAAAJ&hl=en&authuser=1&oi=sra)<sup>1</sup>, [Salman Khan](https://salman-h-khan.github.io/)<sup>1</sup>, [Ming-Hsuan Yang](https://scholar.google.com/citations?user=p9-ohHsAAAAJ&hl=en)<sup>2,3</sup> and [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en)<sup>1,4</sup>
 
 Mohamed Bin Zayed University of Artificial Intelligence<sup>1</sup>, University of California Merced<sup>2</sup>, Google Research<sup>3</sup>, Linkoping University<sup>4</sup>
@@ -60,14 +81,14 @@ Self-attention has become a defacto choice for capturing global context in vario
   <img src="images/semantic_seg.png" width=100%> <br>
 </p>
 
-## Latency Measurement 
+## Latency Measurement
 
 The latency reported in SwiftFormer for iPhone 14 (iOS 16) uses the benchmark tool from [XCode 14](https://developer.apple.com/videos/play/wwdc2022/10027/).
 
-## ImageNet  
+## ImageNet
 
 ### Prerequisites
-`conda` virtual environment is recommended. 
+`conda` virtual environment is recommended.
 
 ```shell
 conda create --name=swiftformer python=3.9
@@ -89,7 +110,7 @@ Download and extract ImageNet train and val images from http://image-net.org. Th
 
 ### Single machine multi-GPU training
 
-We provide training script for all models in `dist_train.sh` using PyTorch distributed data parallel (DDP). 
+We provide training script for all models in `dist_train.sh` using PyTorch distributed data parallel (DDP).
 
 To train SwiftFormer models on an 8-GPU machine:
 
@@ -97,7 +118,7 @@ To train SwiftFormer models on an 8-GPU machine:
 sh dist_train.sh /path/to/imagenet 8
 ```
 
-Note: specify which model command you want to run in the script. To reproduce the results of the paper, use 16-GPU machine with batch-size of 128 or 8-GPU machine with batch size of 256. Auto Augmentation, CutMix, MixUp are disabled for SwiftFormer-XS, and CutMix, MixUp are disabled for SwiftFormer-S. 
+Note: specify which model command you want to run in the script. To reproduce the results of the paper, use 16-GPU machine with batch-size of 128 or 8-GPU machine with batch size of 256. Auto Augmentation, CutMix, MixUp are disabled for SwiftFormer-XS, and CutMix, MixUp are disabled for SwiftFormer-S.
 
 ### Multi-node training
 
@@ -107,11 +128,11 @@ On a Slurm-managed cluster, multi-node training can be launched as
 sbatch slurm_train.sh /path/to/imagenet SwiftFormer_XS
 ```
 
-Note: specify slurm specific paramters in `slurm_train.sh` script.  
+Note: specify slurm specific paramters in `slurm_train.sh` script.
 
-### Testing 
+### Testing
 
-We provide an example test script `dist_test.sh` using PyTorch distributed data parallel (DDP). 
+We provide an example test script `dist_test.sh` using PyTorch distributed data parallel (DDP).
 For example, to test SwiftFormer-XS on an 8-GPU machine:
 
 ```
@@ -129,13 +150,7 @@ if you use our work, please consider citing us:
 }
 ```
 
-## Contact:
-If you have any questions, please create an issue on this repository or contact at abdelrahman.youssief@mbzuai.ac.ae.
+## Contact
+If you have any questions, please create an issue in the original [SwiftFormer repo](https://github.com/Amshaker/SwiftFormer) and tag/mention me, `@3scorciav`.
 
-
-## Acknowledgement
-Our code base is based on [LeViT](https://github.com/facebookresearch/LeViT) and [EfficientFormer](https://github.com/snap-research/EfficientFormer) repositories. We thank authors for their open-source implementation.
-
-## Our Related Works
-
-- EdgeNeXt: Efficiently Amalgamated CNN-Transformer Architecture for Mobile Vision Applications, CADL'22, ECCV. [Paper](https://arxiv.org/abs/2206.10589) | [Code](https://github.com/mmaaz60/EdgeNeXt).
+Personal/consultancy enquiries? Reach out via email. `victor.escorcia` at university `kaust.edu.sa`.
