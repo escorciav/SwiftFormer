@@ -14,7 +14,7 @@ Fork of SwiftFormer porting onto Qualcomm:QNN/SNPE via onnx.
 
   | QNN            | 2.16 | 2.17  | 2.18   |
   | -------------- | -----| ----- | ------ |
-  | Latency (msec) | 2.63 | TODO  | TODO   |
+  | Latency (msec) | 2.63 | 2.26  | 2.43   |
 
   All done in S23 Ultra S8G2, Hexagon v73 AFAIR.
   More details [here](https://github.com/Amshaker/SwiftFormer/issues/14#issuecomment-1883421008).
